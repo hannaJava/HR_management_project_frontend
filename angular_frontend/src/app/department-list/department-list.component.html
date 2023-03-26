@@ -1,0 +1,23 @@
+<h1 class="text-center">Department List</h1>
+			<table class="table table-striped table-bordered">
+				<thead class="table-dark">
+   					<tr>
+     			 		<th scope="col">Department Id</th>
+     			 		<th scope="col">Department Name</th>
+                          <th scope="col">Department Location</th>
+   				 	</tr>
+  				</thead>
+  				<tbody>
+                    <tr *ngFor = "let department of departments">
+                        <td>
+                          {{department.id}}  
+                        </td>
+                        <td>
+                            {{department.departmentName}}  
+                          </td>
+                          <td>
+                            {{department.departmentLocation}}  
+                          </td>
+                    </tr>
+  				</tbody>
+			</table>
