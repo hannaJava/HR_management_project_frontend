@@ -8,11 +8,15 @@ import { Department } from './department';
 })
 export class DepartmentService {
 
-  private baseUrl="http://localhost:8080/api/department/getAll";//"localhost:8080/api/department/getAll";
-  
+  private getAllUrl="http://localhost:8080/api/department/getAll";//"localhost:8080/api/department/getAll";
+  private addUrl="http://localhost:8080/api/department/add";
   constructor(private httpClient:HttpClient) { }
 
   getDepartmentsList():Observable<Department[]>{
-    return this.httpClient.get<Department[]>(this.baseUrl);//(`${this.baseUrl}`);
+    return this.httpClient.get<Department[]>(this.getAllUrl);//(`${this.baseUrl}`);
+  }
+
+  addDepartment(department:Department):Observable<any>{
+      return this.httpClient.post(this.addUrl,department);
   }
 }
