@@ -8,8 +8,9 @@ import { Department } from './department';
 })
 export class DepartmentService {
 
-  private getAllUrl="http://localhost:8080/api/department/getAll";//"localhost:8080/api/department/getAll";
-  private addUrl="http://localhost:8080/api/department/add";
+  //private getAllUrl="http://localhost:8080/api/department/getAll";//"localhost:8080/api/department/getAll";localhost:DEPARTMENT-SERVICE:9091
+  private getAllUrl="http://localhost:9091/api/department/getAll";
+  private addUrl="http://localhost:9091/api/department/add";
   constructor(private httpClient:HttpClient) { }
 
   getDepartmentsList():Observable<Department[]>{

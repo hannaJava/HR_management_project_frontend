@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Department } from '../department';
 import { DepartmentService } from '../department.service';
 
@@ -11,7 +12,8 @@ export class DepartmentListComponent implements OnInit{
 
   departments!: Department[];
 
-  constructor(private departmentSevice:DepartmentService){ }
+  constructor(private departmentSevice:DepartmentService, 
+    private router:Router){ }
 
   ngOnInit():void{
     this.getDepartments();
@@ -23,5 +25,11 @@ export class DepartmentListComponent implements OnInit{
       this.departments=response;
     }
       );
+  }
+  updateDepartment(id:number){
+    this.router.navigate(['update-department',id]);
+  }
+  deleteDepartment(id:number){
+    this.router.navigate(['delete-department',id]);
   }
 }

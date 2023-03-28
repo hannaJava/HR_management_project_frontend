@@ -1,5 +1,11 @@
 export class Department {
-    id: number | undefined;
-    departmentName: string | undefined;
-    departmentLocation: string | undefined;
+    id: number;
+    departmentName: string ;
+    departmentLocation: string;
+
+    constructor(){
+        this.id=0;
+        this.departmentName='';
+        this.departmentLocation='';
+    }
 }

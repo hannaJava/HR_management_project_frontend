@@ -7,12 +7,16 @@ import { AppComponent } from './app.component';
 import { DepartmentListComponent } from './department-list/department-list.component';
 import { AddDepartmentComponent } from './add-department/add-department.component';
 import { FormsModule } from '@angular/forms';
+import { UpdateDepartmentComponent } from './update-department/update-department.component';
+import { DeleteDepartmentComponent } from './delete-department/delete-department.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DepartmentListComponent,
-    AddDepartmentComponent
+    AddDepartmentComponent,
+    UpdateDepartmentComponent,
+    DeleteDepartmentComponent
   ],
   imports: [
     BrowserModule,
