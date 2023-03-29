@@ -24,6 +24,8 @@ export class DeleteDepartmentComponent implements OnInit{
       },
       error=>console.log(error)
     );
+
+    this.departmentService.publishHrEventMessage('a department with id : '+this.department.id+' has been deleted');
   }
 
   onSubmit(){

@@ -32,5 +32,6 @@ export class AddDepartmentComponent implements OnInit{
       },
       error=>console.log(error) 
     );
+    this.departmentService.publishHrEventMessage('a new department with id : '+this.department.id+' has been created');
   }
 }

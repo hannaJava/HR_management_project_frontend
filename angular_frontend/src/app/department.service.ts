@@ -14,6 +14,7 @@ export class DepartmentService {
   private addUrl="http://localhost:9091/api/department/add";
   private updateUrl="http://localhost:9091/api/department/update";
   private deleteUrl="http://localhost:9091/api/department/delete";
+   private publishUrl="http://localhost:9093/api/producer/publish";
   constructor(private httpClient:HttpClient) { }
 
   getDepartmentsList():Observable<Department[]>{
@@ -34,5 +35,10 @@ export class DepartmentService {
 
   deleteDepartment(id:number):Observable<any>{
     return this.httpClient.delete(`${this.deleteUrl}/${id}`);
+  }
+
+  publishHrEventMessage(message:string):Observable<any>{
+    console.log(message);
+      return this.httpClient.post(this.publishUrl,message);
   }
 }
