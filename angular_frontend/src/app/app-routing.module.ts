@@ -8,8 +8,8 @@ import { UpdateDepartmentComponent } from './update-department/update-department
 const routes: Routes = [
   {path:'departments', component: DepartmentListComponent},
   {path:'add-department', component: AddDepartmentComponent},
-  {path: 'update-department', component:UpdateDepartmentComponent},
-  {path: 'delete-department', component:DeleteDepartmentComponent},
+  {path: 'update-department/:id', component:UpdateDepartmentComponent},
+  {path: 'delete-department/:id', component:DeleteDepartmentComponent},
   {path:'', redirectTo:'departments',pathMatch:'full'}
 ];
 

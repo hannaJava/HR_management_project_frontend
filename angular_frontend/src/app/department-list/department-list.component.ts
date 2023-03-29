@@ -12,7 +12,7 @@ export class DepartmentListComponent implements OnInit{
 
   departments!: Department[];
 
-  constructor(private departmentSevice:DepartmentService, 
+  constructor(private departmentService:DepartmentService, 
     private router:Router){ }
 
   ngOnInit():void{
@@ -20,16 +20,17 @@ export class DepartmentListComponent implements OnInit{
   }
 
   private getDepartments(){
-    this.departmentSevice.getDepartmentsList().subscribe(response=>{
+    this.departmentService.getDepartmentsList().subscribe(response=>{
       console.log(response);
       this.departments=response;
     }
       );
   }
   updateDepartment(id:number){
-    this.router.navigate(['update-department',id]);
+    this.router.navigate(['/update-department',id]);
   }
   deleteDepartment(id:number){
-    this.router.navigate(['delete-department',id]);
+    //this.departmentService.deleteDepartment(id);
+    this.router.navigate(['/delete-department',id]);
   }
 }

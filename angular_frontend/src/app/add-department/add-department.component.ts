@@ -15,6 +15,15 @@ export class AddDepartmentComponent implements OnInit{
               private router: Router){ }
   ngOnInit():void{
   }
+    displayDepartmentList(){
+      this.router.navigate(['/departments'])
+    }
+
+  onSubmit(){
+    console.log(this.department);
+    this.addDepartment();
+    this.displayDepartmentList();
+  }
 
   addDepartment(){
     this.departmentService.addDepartment(this.department).subscribe(
@@ -23,14 +32,5 @@ export class AddDepartmentComponent implements OnInit{
       },
       error=>console.log(error) 
     );
-  }
-
-    displayDepartmentList(){
-      this.router.navigate(['/departments'])
-    }
-
-  onSubmit(){
-    console.log(this.department);
-    this.addDepartment();
   }
 }
