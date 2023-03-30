@@ -10,6 +10,7 @@ import { DepartmentService } from '../department.service';
 })
 export class AddDepartmentComponent implements OnInit{
 
+  id:number=0;
   department: Department = new Department;
   constructor(private departmentService: DepartmentService,
               private router: Router){ }
@@ -20,18 +21,23 @@ export class AddDepartmentComponent implements OnInit{
     }
 
   onSubmit(){
-    console.log(this.department);
+    //console.log(this.department);
     this.addDepartment();
+    this.departmentService.publishHrEventMessage('a new department has been created ').subscribe(
+      response=>{
+        //console.log(response)
+      },
+      error=>console.log(error)
+    );
     this.displayDepartmentList();
   }
 
   addDepartment(){
     this.departmentService.addDepartment(this.department).subscribe(
       response=>{
-        console.log(response)
+        console.log(response);
       },
       error=>console.log(error) 
     );
-    this.departmentService.publishHrEventMessage('a new department with id : '+this.department.id+' has been created');
   }
 }

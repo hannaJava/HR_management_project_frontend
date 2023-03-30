@@ -38,7 +38,12 @@ export class UpdateDepartmentComponent implements OnInit{
       error=>console.log(error) 
     );
     console.log('a department with id : '+this.department.id+' has been updated');
-    this.departmentService.publishHrEventMessage('a department with id : '+this.department.id+' has been updated');
+    this.departmentService.publishHrEventMessage('a department with id : '+this.department.id+' has been updated').subscribe(
+      response=>{
+        console.log(response)
+      },
+      error=>console.log(error)
+    );
   }
   onSubmit(){
     console.log(this.department);

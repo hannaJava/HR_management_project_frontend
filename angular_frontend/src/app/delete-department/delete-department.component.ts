@@ -24,8 +24,6 @@ export class DeleteDepartmentComponent implements OnInit{
       },
       error=>console.log(error)
     );
-
-    this.departmentService.publishHrEventMessage('a department with id : '+this.department.id+' has been deleted');
   }
 
   onSubmit(){
@@ -34,7 +32,18 @@ export class DeleteDepartmentComponent implements OnInit{
   }
 
   deleteDepartment(id:number){
-    this.departmentService.deleteDepartment(id);
+    this.departmentService.deleteDepartment(id).subscribe(
+      response=>{
+        console.log(response)
+      },
+      error=>console.log(error)
+    );
+    this.departmentService.publishHrEventMessage('a department with id : '+this.department.id+' has been deleted').subscribe(
+      response=>{
+        console.log(response)
+      },
+      error=>console.log(error)
+    );
   }
 
   displayDepartmentList(){
